@@ -1,2 +1,2 @@
-# pypass
-Password Generate App in Python and Cloudflare Workers
+# jspass
+Password Generate App in JavaScript and Cloudflare Workers
