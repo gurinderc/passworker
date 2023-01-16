@@ -1,2 +1,2 @@
-# jspass
-Password Generate App in JavaScript and Cloudflare Workers
+# passworker
+Password Generate App for Cloudflare Workers
