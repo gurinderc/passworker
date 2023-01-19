@@ -88,6 +88,10 @@ async function handleRequest(request) {
   });
 }
 
-addEventListener('fetch', event => {
-  return event.respondWith(handleRequest(event.request));
-});
+if (typeof module !== 'undefined' && !module.parent) {
+  console.log(getHtml());
+} else {
+  addEventListener('fetch', event => {
+    return event.respondWith(handleRequest(event.request));
+  });
+}
