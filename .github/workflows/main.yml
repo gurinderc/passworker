@@ -15,4 +15,4 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.WORKER_SCRIPT_EDIT_TOKEN }}
-          command: publish javascript-worker.js --name passworker.gnet.workers.dev --env Production
+          command: publish javascript-worker.js --name passworker.gnet.workers.dev
