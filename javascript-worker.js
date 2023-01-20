@@ -28,12 +28,13 @@ function getHeading(){
 }
 
 function getTable(num, length, isSpecial){
-  let t = `<table class="table is-hoverable is-fullwidth is-striped is-bordered">`;
-  t += `<thead><tr><th>#</th><th>Length: ${length} Characters ${isSpecial? "(include specials)" : ""} </th></tr></thead>`;
+  let t = `<table class="table is-hoverable is-fullwidth is-striped">`;
+  t += `<thead><tr><th width=20px>#</th><th>Length: ${length} Characters ${isSpecial? "(include specials)" : ""} </th><th width=60px></th></tr></thead>`;
   let m = `<tbody>`;
   var passwords = generatePasswords(num, length, isSpecial);
   for (var i = 0; i < passwords.length; i++) {
-    m += `<tr><td>${i+1}</td><td>${passwords[i]}</td></tr>`;
+    m += `<tr><td class="p-1">${i+1}</td><td class="p-1" id="pwd-${i+1}-${length}-${isSpecial}">${passwords[i]}</td>`;
+    m += `<td class="p-1"><button id="btn-${i+1}-${length}-${isSpecial}" class="button is-small is-outlined is-rounded">Copy</button></td></tr>`;
   }
   m+=`</tbody>`;
   return t+m+`</table>`;
@@ -89,7 +90,14 @@ async function handleRequest(request) {
 }
 
 if (typeof module !== 'undefined' && !module.parent) {
-  console.log(getHtml());
+  const content = getHtml();
+  console.log(content);
+  const fs = require('fs');
+  fs.writeFile('test.html', content, err => {
+    if (err) {
+      console.error(err);
+    }
+  });
 } else {
   addEventListener('fetch', event => {
     return event.respondWith(handleRequest(event.request));
