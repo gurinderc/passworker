@@ -68,6 +68,12 @@ function getGrid(){
        + `</div>`;
 }
 
+function getRefresh() {
+  return `<div class="content is-medium has-text-centered">`
+       + `<button class="button is-rounded has-background-info-dark has-text-white is-size-5" onclick="window.location.reload();">Refresh</button>`
+       + `</div>`
+}
+
 function getHtml(){
   try {
     return `<!DOCTYPE html><html>` 
@@ -75,6 +81,7 @@ function getHtml(){
            + `<body>`
            + getHeading()
            + getGrid() 
+           + getRefresh()
            + `</body></html>`;
   }
   catch(error) {
