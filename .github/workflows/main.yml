@@ -15,5 +15,6 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_WORKERS }}
-          command: publish javascript-worker.js --name passworker.gnet.workers.dev
+          command: whoami
+          #command: publish javascript-worker.js --name passworker.gnet.workers.dev
 
