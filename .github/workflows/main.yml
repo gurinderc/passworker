@@ -16,3 +16,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_WORKERS }}
           command: publish javascript-worker.js --name passworker.gnet.workers.dev
+
