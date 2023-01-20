@@ -19,6 +19,7 @@ function getHead(){
        + `<title>Password</title>`
        + `<meta charset="utf-8">`
        + `<meta name="viewport" content="width=device-width, initial-scale=1">`
+       + `<script src="https://cdn.jsdelivr.net/gh/gurinderc/gcservices-libs/javascript/dist/gcserviceslib.js"></script>`
        + `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">`
        + `</head>`;
 }
@@ -34,7 +35,7 @@ function getTable(num, length, isSpecial){
   var passwords = generatePasswords(num, length, isSpecial);
   for (var i = 0; i < passwords.length; i++) {
     m += `<tr><td class="p-1">${i+1}</td><td class="p-1" id="pwd-${i+1}-${length}-${isSpecial}">${passwords[i]}</td>`;
-    m += `<td class="p-1"><button id="btn-${i+1}-${length}-${isSpecial}" class="button is-small is-outlined is-rounded">Copy</button></td></tr>`;
+    m += `<td class="p-1"><button class="button is-small is-outlined is-rounded" onclick="GCServices.copy2Clipboard('pwd-${i+1}-${length}-${isSpecial}')">Copy</button></td></tr>`;
   }
   m+=`</tbody>`;
   return t+m+`</table>`;
@@ -71,7 +72,7 @@ function getHtml(){
   try {
     return `<!DOCTYPE html><html>` 
            + getHead() 
-           + `<body>` 
+           + `<body>`
            + getHeading()
            + getGrid() 
            + `</body></html>`;
