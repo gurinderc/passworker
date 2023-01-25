@@ -1,4 +1,4 @@
 # passworker
-Password Generate App for Cloudflare Workers
+Password Generate App with Cloudflare Workers
 
 Deployed @ https://pass.gurinder.net
